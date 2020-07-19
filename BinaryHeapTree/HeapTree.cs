@@ -24,10 +24,51 @@ namespace BinaryHeapTree
 
         }
 
-        public void Pop()
+        public T Pop()
         {
-
+            T value = heap[0];
+            swap(0, heap.Count - 1);
+            heap.RemoveAt(heap.Count - 1);
+            HeapifyDown();
+            return value;
         }
+
+        private void HeapifyDown()
+        {
+            int parrentIndex = 0;
+            
+            while(parrentIndex < heap.Count )
+            {
+                //compare left and right
+                int left = (parrentIndex * 2) + 1;
+                int right = (parrentIndex * 2) + 2;
+
+                int indexToSwap;
+                
+                if(left > heap.Count || right > heap.Count)
+                {
+                    break;
+                }
+
+                if(heap[left].CompareTo(heap[right]) < 0)
+                {
+                    indexToSwap = left;
+                }
+                else
+                {
+                    indexToSwap = right;
+                }
+
+                if(heap[parrentIndex].CompareTo(heap[indexToSwap]) > 0)
+                {
+                    swap(parrentIndex, indexToSwap);
+                }
+
+                parrentIndex = indexToSwap;
+
+            }
+        }
+
 
         //min-heap
         private void HeapifyUp()
