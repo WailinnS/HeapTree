@@ -22,14 +22,17 @@ namespace BinaryHeapTree
             for (int i = 0; i < 10; i++)
             {
                 heapTree.Insert(numGen.Next(101));
+            }
+            for (int i = 0; i < heapTree.heap.Count; i++)
+            {
                 Console.Write($"{heapTree.heap[i]} ");
             }
-
+            Console.WriteLine();
             List<int> heapNumbers = new List<int>();
             for (int i = 0; i < 10; i++)
             {
                 heapNumbers.Add(heapTree.Pop());
-                Console.WriteLine($"{heapNumbers[i]} ");
+                Console.Write($"{heapNumbers[i]} ");
             }
 
 

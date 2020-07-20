@@ -45,7 +45,7 @@ namespace BinaryHeapTree
 
                 int indexToSwap;
                 
-                if(left > heap.Count || right > heap.Count)
+                if(left > heap.Count - 1|| right > heap.Count - 1)
                 {
                     break;
                 }
